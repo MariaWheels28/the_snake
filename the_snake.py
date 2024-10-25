@@ -76,7 +76,10 @@ class Apple(GameObject):
             (randint(0, GRID_HEIGHT - 1) * GRID_SIZE),
         )
         if self.position in positions:
-            self.position = positions[len(positions) - 1]
+            last = positions[-1]
+            pre_last = positions[-2]
+            self.position = ((last[0] - pre_last[0] + last[0]),
+                             (last[1] - pre_last[1] + last[1]))
 
 
 class Snake(GameObject):
