@@ -20,8 +20,6 @@ BOARD_BACKGROUND_COLOR = (0, 0, 0)
 # Цвет границы ячейки
 BORDER_COLOR = (93, 216, 228)
 
-DEFAULT_COLOR = (0, 0, 0)
-
 # Цвет яблока
 APPLE_COLOR = (255, 0, 0)
 
@@ -44,7 +42,7 @@ clock = pg.time.Clock()
 class GameObject:
     """Основной класс игры."""
 
-    def __init__(self, body_color=DEFAULT_COLOR) -> None:
+    def __init__(self, body_color=SNAKE_COLOR) -> None:
         """Инициализация объектов класс GameObject."""
         self.position = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
         self.body_color = body_color
@@ -64,6 +62,10 @@ class GameObject:
 class Apple(GameObject):
     """Класс, который описывает объект Apple."""
 
+    def __init__(self, body_color=APPLE_COLOR) -> None:
+        super().__init__()
+        self.body_color = body_color
+
     def randomize_position(self, positions):
         """Установка нового местоположения объекта."""
         while True:
@@ -78,17 +80,15 @@ class Apple(GameObject):
 class Snake(GameObject):
     """Класс, который описывает объект Snake."""
 
-    def __init__(self, body_color=DEFAULT_COLOR) -> None:
+    def __init__(self, body_color=SNAKE_COLOR) -> None:
         super().__init__()
         self.reset()
         self.next_direction = None
         self.last = None
         self.body_color = body_color
 
-    def draw(self, reset=False):
+    def draw(self):
         """Отрисовывка объекта на поле."""
-        if reset:
-            screen.fill(BOARD_BACKGROUND_COLOR)
         for position in self.positions:
             self.draw_cell(position)
         # Затирание последнего сегмента
@@ -143,8 +143,8 @@ def handle_keys(game_object):
 def main():
     """Главная функция запуска игры."""
     pg.init()
-    apple = Apple(APPLE_COLOR)
-    snake = Snake(SNAKE_COLOR)
+    apple = Apple()
+    snake = Snake()
 
     while True:
         clock.tick(SPEED)
@@ -153,7 +153,8 @@ def main():
         # Если змейка 'стукнулась' сама в себя.
         if snake.get_head_position() in snake.positions[1:]:
             snake.reset()
-            snake.draw(True)
+            screen.fill(BOARD_BACKGROUND_COLOR)
+            snake.draw()
             apple.draw_cell()
         else:
             apple.draw_cell()
