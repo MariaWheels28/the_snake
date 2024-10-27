@@ -114,10 +114,11 @@ class Snake(GameObject):
 
     def move(self):
         """Обновление положения объекта, имитация движения."""
-        x, y = self.get_head_position()
         self.update_direction()
-        self.positions.insert(0, ((x + 20 * self.direction[0]) % SCREEN_WIDTH,
-                              (y + 20 * self.direction[1]) % SCREEN_HEIGHT))
+        board_x, board_y = self.get_head_position()
+        direction_x, direction_y = self.direction
+        self.positions.insert(0, ((board_x + 20 * direction_x) % SCREEN_WIDTH,
+                              (board_y + 20 * direction_y) % SCREEN_HEIGHT))
         if len(self.positions) > self.length:
             self.last = self.positions.pop()
 
