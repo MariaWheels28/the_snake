@@ -42,7 +42,7 @@ clock = pg.time.Clock()
 class GameObject:
     """Основной класс игры."""
 
-    def __init__(self, body_color=SNAKE_COLOR) -> None:
+    def __init__(self, body_color=BOARD_BACKGROUND_COLOR) -> None:
         """Инициализация объектов класс GameObject."""
         self.position = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
         self.body_color = body_color
@@ -154,11 +154,8 @@ def main():
         if snake.get_head_position() in snake.positions[1:]:
             snake.reset()
             screen.fill(BOARD_BACKGROUND_COLOR)
-            snake.draw()
-            apple.draw_cell()
-        else:
-            apple.draw_cell()
-            snake.draw()
+        apple.draw_cell()
+        snake.draw()
         pg.display.update()
         # Если змейка 'скушала' яблоко.
         if apple.position == snake.get_head_position():
