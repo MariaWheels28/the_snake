@@ -1,6 +1,6 @@
 # the_snake
 
-# Правила игры
+## Правила игры
 
 Змейка состоит из сегментов.
 Змейка движется в одном из четырёх направлений — вверх, вниз, влево или вправо. Игрок управляет направлением движения, но змейка не может остановиться или двигаться назад.
@@ -8,7 +8,7 @@
 Змейка может проходить сквозь одну стену и появляться с противоположной стороны поля. У вас будет именно так.
 Если змейка столкнётся сама с собой — игра начинается с начала.
 
-# Game Rules
+## Game Rules
 
 The snake consists of segments.
 The snake moves in one of four directions — up, down, left, or right. The player controls the direction of movement, but the snake cannot stop or move backward.
