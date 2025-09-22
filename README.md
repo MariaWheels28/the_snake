@@ -17,4 +17,5 @@ The player controls the snake, eats apples to grow longer, and tries to avoid co
   ```bash
   python snake.py
 
-https://pictures.s3.yandex.net/resources/image_1702376899.png
+<img width="2000" height="922" alt="image_1702376899" src="https://github.com/user-attachments/assets/9aac7594-6af0-48cd-89d1-76acf129a796" />
+
