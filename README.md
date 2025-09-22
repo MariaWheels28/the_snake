@@ -1,6 +1,4 @@
-# the_snake
-
-# 🐍 Snake Game  
+# 🐍 the_snake Game  
 
 A classic **Snake Game** implemented in **Python** with **Pygame**.  
 The player controls the snake, eats apples to grow longer, and tries to avoid colliding with itself. If the snake runs into its own body — the game restarts.  
@@ -15,8 +13,8 @@ The player controls the snake, eats apples to grow longer, and tries to avoid co
   - `Snake` — handles movement, growth, and collisions  
   - `Apple` — generates apples at random positions  
 
-## 🚀 Run the Game
-```bash
-python snake.py
+  ## 🚀 Run the Game
+  ```bash
+  python snake.py
 
 https://pictures.s3.yandex.net/resources/image_1702376899.png
